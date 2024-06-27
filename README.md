@@ -1,16 +1,31 @@
-# sohna_salon_app
+# Sohna Salon App
 
-A new Flutter project.
+# Authentication: 
+  User login via email/password or Google; splash screen during login and data fetch.
 
-## Getting Started
+# Home Screen: 
+  Custom bottom navigation bar with Home, Deals, Services, and Booking icons. It contains:
+  # Top Services: 
+    Horizontally scrollable list of service icons and titles.
+  # Best Deals: 
+    Horizontal slider of images.
+  # Top Specialists: 
+    Horizontally scrollable list of specialists with names.
 
-This project is a starting point for a Flutter application.
+# Reviews Screen: 
+  Horizontally scrollable customer reviews.
 
-A few resources to get you started if this is your first Flutter project:
+# Deals Screen: 
+  Detailed description of deals with images, descriptions, and a "Book Now" button.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Services Screen:
+  Detailed service descriptions, images, prices, and booking options.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Booking Screen: 
+  Select deals/services, choose date/time, and book appointments.
+
+# Drawer Menu: 
+  Bookings, Reviews, FAQs, Salon Details, About, Developer Info, and Logout options.
+
+# Backend: 
+  Data stored and fetched using Firebase; Stream Provider and RiverPod for data management.
