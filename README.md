@@ -1,31 +1,31 @@
 # Sohna Salon App
 
-# Authentication: 
+## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
 
-# Home Screen: 
+## Home Screen: 
   Custom bottom navigation bar with Home, Deals, Services, and Booking icons. It contains:
-  # Top Services: 
+  ### Top Services: 
     Horizontally scrollable list of service icons and titles.
-  # Best Deals: 
+  ### Best Deals: 
     Horizontal slider of images.
-  # Top Specialists: 
+  ### Top Specialists: 
     Horizontally scrollable list of specialists with names.
 
-# Reviews Screen: 
+## Reviews Screen: 
   Horizontally scrollable customer reviews.
 
-# Deals Screen: 
+## Deals Screen: 
   Detailed description of deals with images, descriptions, and a "Book Now" button.
 
-# Services Screen:
+## Services Screen:
   Detailed service descriptions, images, prices, and booking options.
 
-# Booking Screen: 
+## Booking Screen: 
   Select deals/services, choose date/time, and book appointments.
 
-# Drawer Menu: 
+## Drawer Menu: 
   Bookings, Reviews, FAQs, Salon Details, About, Developer Info, and Logout options.
 
-# Backend: 
+## Backend: 
   Data stored and fetched using Firebase; Stream Provider and RiverPod for data management.
