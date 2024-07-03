@@ -3,6 +3,8 @@
 ## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
 
+  ![Authentication Screen](assets/1.jpg)
+
 ## Home Screen: 
   Custom bottom navigation bar with Home, Deals, Services, and Booking icons. It contains:
   ### Top Services: 
