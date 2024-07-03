@@ -1,9 +1,8 @@
 # Sohna Salon App
 
 ## My Screens:
-
+  <img src="assets/thumbail.jpg" alt="Drawer Menu" width="1000"/>
   <img src="assets/4.jpg" alt="Drawer Menu" width="300"/> 
-  <img src="assets/thumbail.jpg" alt="Drawer Menu" width="300"/>
   <div style="display: flex; flex-wrap: wrap;">
   <img src="assets/1.jpg" alt="Drawer Menu" width="300"/>
   <img src="assets/2.jpg" alt="Drawer Menu" width="300"/>
