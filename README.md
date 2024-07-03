@@ -1,8 +1,10 @@
 # Sohna Salon App
 
 ## My Screens:
-  <img src="path-to-image/2.jpg" alt="Home Screen" width="200"/> <img src="path-to-image/2.jpg" alt="Home Screen" width="200"/>
-
+  <div style="display: flex; flex-wrap: wrap;">
+  <img src="assets/1.jpg" alt="Drawer Menu" width="300"/>
+  <img src="assets/2.jpg" alt="Drawer Menu" width="300"/>
+</div>
 
 ## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
