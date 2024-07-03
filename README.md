@@ -1,9 +1,15 @@
 # Sohna Salon App
 
+## My Screens:
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+
 ## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
-
-  <img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
 
 ## Home Screen: 
   Custom bottom navigation bar with Home, Deals, Services, and Booking icons. It contains:
