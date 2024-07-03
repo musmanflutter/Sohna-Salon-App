@@ -1,8 +1,7 @@
 # Sohna Salon App
 
 ## My Screens:
-  <img src="path-to-image/2.jpg" alt="Home Screen" width="300"/> <img src="path-to-image/2.jpg" alt="Home Screen" width="300"/> <img src="path-to-image/2.jpg" alt="Home Screen" width="300"/>
-  
+  <img src="path-to-image/2.jpg" alt="Home Screen" width="200"/> <img src="path-to-image/2.jpg" alt="Home Screen" width="200"/>
 
 
 ## Authentication: 
