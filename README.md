@@ -1,12 +1,10 @@
 # Sohna Salon App
 
 ## My Screens:
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
-<img src="assets/1.jpg" alt="Authentication Screen" width="300"/>
+<div style="display: flex; flex-wrap: wrap;">
+  <img src="path-to-image/2.jpg" alt="Home Screen" width="300"/>
+  <img src="path-to-image/2.jpg" alt="Home Screen" width="300"/>
+</div>
 
 ## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
