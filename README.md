@@ -1,15 +1,12 @@
 # Sohna Salon App
 
 ## My Screens:
+
+  <img src="assets/4.jpg" alt="Drawer Menu" width="300"/> 
   <div style="display: flex; flex-wrap: wrap;">
   <img src="assets/1.jpg" alt="Drawer Menu" width="300"/>
   <img src="assets/2.jpg" alt="Drawer Menu" width="300"/>
   <img src="assets/3.jpg" alt="Drawer Menu" width="300"/>
-  <img src="assets/5.jpg" alt="Drawer Menu" width="300"/>
-  <img src="assets/6.jpg" alt="Drawer Menu" width="300"/>
-  <img src="assets/7.jpg" alt="Drawer Menu" width="300"/>
-  <img src="assets/8.jpg" alt="Drawer Menu" width="300"/>
-  <img src="assets/4.jpg" alt="Drawer Menu" width="300"/>
 </div>
 
 ## Authentication: 
