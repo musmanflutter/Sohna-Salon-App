@@ -17,6 +17,7 @@ migrate_working_dir/
 .idea/
 
 # Sensitive files
+lib/firebase_options.dart
 key.properties
 .env
 google-services.json
