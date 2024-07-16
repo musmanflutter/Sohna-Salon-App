@@ -8,9 +8,9 @@
   <img src="assets/2.jpg" alt="Drawer Menu" width="330"/>
   <img src="assets/3.jpg" alt="Drawer Menu" width="330"/>
   <img src="assets/5.jpg" alt="Drawer Menu" width="248"/>
-  <img src="assets/6.jpg" alt="Drawer Menu" width="248"/>
+  <img src="assets/6.jpg" alt="Drawer Menu" width="247"/>
   <img src="assets/7.jpg" alt="Drawer Menu" width="248"/>
-  <img src="assets/8.jpg" alt="Drawer Menu" width="248"/>
+  <img src="assets/8.jpg" alt="Drawer Menu" width="247"/>
 </div>
 
 ## Authentication: 
