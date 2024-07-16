@@ -1,5 +1,18 @@
 # Sohna Salon App
 
+## My Screens:
+  <img src="assets/thumbail.jpg" alt="Drawer Menu" width="999"/>
+  <img src="assets/4.jpg" alt="Drawer Menu" width="999"/> 
+  <div style="display: flex; flex-wrap: wrap;">
+  <img src="assets/1.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/2.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/3.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/5.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/6.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/7.jpg" alt="Drawer Menu" width="333"/>
+  <img src="assets/8.jpg" alt="Drawer Menu" width="333"/>
+</div>
+
 ## Authentication: 
   User login via email/password or Google; splash screen during login and data fetch.
 
