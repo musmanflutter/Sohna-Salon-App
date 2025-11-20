@@ -33,15 +33,9 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   List<String> servicesPrice = [];
   List<String> dealsNames = [];
   List<String> dealsPrice = [];
-  List<String> serviceFallbackText = [
-    'No Services added',
-  ];
-  List<String> servicePriceFallbackText = [
-    '',
-  ];
-  List<String> dealsFallbackText = [
-    'No Deals added',
-  ];
+  List<String> serviceFallbackText = ['No Services added'];
+  List<String> servicePriceFallbackText = [''];
+  List<String> dealsFallbackText = ['No Deals added'];
   List<ServiceClass> _selectedServices = [];
   List<DealClass> _selectedDeals = [];
   var isAuthenticating = false;
@@ -78,8 +72,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
   }
 
   void submitBooking(Size screenSize) async {
-    final List<ConnectivityResult> connectivityResult =
-        await (Connectivity().checkConnectivity());
+    final List<ConnectivityResult> connectivityResult = await (Connectivity()
+        .checkConnectivity());
     if (connectivityResult.contains(ConnectivityResult.none)) {
       // No available network types
       if (!mounted) return;
@@ -87,7 +81,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-              'No internet connection. Please check your connection and try again.'),
+            'No internet connection. Please check your connection and try again.',
+          ),
         ),
       );
       return;
@@ -100,10 +95,6 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
       List<String> selectedServicePrice = getSelectedServicePrice();
       List<String> selectedDealsNames = getSelectedDealsNames();
       List<String> selectedDealsPrice = getSelectedDealsPrice();
-
-      // Print statements for debugging
-      // print("Booking Name: ${userName ?? oUserName}");
-      // print("Booking Photo URL: ${userPhoto ?? photoUrl}");
 
       final bookingCollection = FirebaseFirestore.instance.collection('Orders');
 
@@ -126,22 +117,9 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         'dealsPrice': selectedDealsPrice.isNotEmpty
             ? selectedDealsPrice
             : servicePriceFallbackText,
-        'total': _totalPrice
+        'total': _totalPrice,
       });
-      // final storageRef = FirebaseStorage.instance
-      //     .ref()
-      //     .child('review_images')
-      //     .child('${doc.id}.jpg');
-      //     await storageRef.putFile(userPhoto);
-      // final feedbackData = {
-      //   'rating': rating,
-      //   'feedback': feedback,
-      //   'createAt': Timestamp.now(),
-      //   'name': 'usman',
-      //   'profilePicUrl': 'assets/images/logo.png',
-      // };
-      // await FirebaseFirestore.instance.collection('Feedback').add(feedbackData);
-      // Reset the fields after submission
+
       final formattedDate = DateFormat('EEE, dd/MM/y').format(_selectedDate);
       setState(() {
         isAuthenticating = false;
@@ -151,8 +129,9 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
             contentPadding: const EdgeInsets.all(10),
             content: Column(
               mainAxisSize: MainAxisSize.min,
@@ -170,8 +149,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                     'Your booking has been placed!',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Text(
@@ -187,7 +166,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                       backgroundColor: Theme.of(context).colorScheme.primary,
                       foregroundColor: Theme.of(context).colorScheme.onPrimary,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
                     onPressed: () {
                       changeIndex(0);
@@ -196,7 +176,8 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
                     child: Text(
                       'OK',
                       style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.onPrimary),
+                        color: Theme.of(context).colorScheme.onPrimary,
+                      ),
                     ),
                   ),
                 ),
@@ -205,42 +186,17 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
           );
         },
       );
-
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   const SnackBar(
-      //     content: Text('Order booked successfully!'),
-      //   ),
-      // );
     } catch (error) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-              'Failed to book order. Please try again later. error: $error'),
+            'Failed to book order. Please try again later. error: $error',
+          ),
         ),
       );
     }
   }
-
-//   Future<void> _saveDialogToGallery(BuildContext context) async {
-//   try {
-//     // Capture the content of the dialog box as an image
-//     RenderRepaintBoundary boundary =
-//         context.findRenderObject() as RenderRepaintBoundary;
-//     ui.Image image = await boundary.toImage(pixelRatio: 3.0);
-//     ByteData? byteData =
-//         await image.toByteData(format: ui.ImageByteFormat.png);
-//     Uint8List pngBytes = byteData!.buffer.asUint8List();
-
-//     // Save the image to the device's gallery
-//     final result = await ImageGallerySaver.saveImage(pngBytes);
-//     print('Image saved to gallery: $result');
-
-//     Navigator.of(context).pop(); // Close the dialog box
-//   } catch (error) {
-//     print('Failed to save image: $error');
-//   }
-// }
 
   void changeIndex(int num) {
     ref.read(indexProvider.notifier).updateIndex(num);
@@ -316,10 +272,10 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
           _currentStep == 0 && _selectedTime.isEmpty
               ? () {}
               : _currentStep == 2 && _totalPrice == 0
-                  ? () {}
-                  : setState(() {
-                      _currentStep = step;
-                    });
+              ? () {}
+              : setState(() {
+                  _currentStep = step;
+                });
         },
         onStepContinue: () {
           if (_currentStep == 3) {
@@ -337,11 +293,12 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
         },
         controlsBuilder: (context, details) {
           return CustomButtons(
-              isAuthenticating: isAuthenticating,
-              currentStep: _currentStep,
-              totalPrice: _totalPrice,
-              selectedTime: _selectedTime,
-              details: details);
+            isAuthenticating: isAuthenticating,
+            currentStep: _currentStep,
+            totalPrice: _totalPrice,
+            selectedTime: _selectedTime,
+            details: details,
+          );
         },
         steps: [
           Step(
@@ -355,9 +312,10 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
             isActive: _currentStep >= 1,
             title: const Text('Services'),
             content: StepTwo(
-                updateTotalPrice: updateTotalPrice,
-                updateSelectedServices: updateSelectedServices,
-                totalPrice: _totalPrice),
+              updateTotalPrice: updateTotalPrice,
+              updateSelectedServices: updateSelectedServices,
+              totalPrice: _totalPrice,
+            ),
           ),
           Step(
             state: _currentStep > 2 ? StepState.complete : StepState.indexed,
@@ -380,7 +338,7 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
               deals: _selectedDeals,
               total: _totalPrice,
             ),
-          )
+          ),
         ],
       ),
     );

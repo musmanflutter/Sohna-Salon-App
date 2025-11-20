@@ -27,18 +27,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 //if have an error
                 if (snapshot.hasError) {
                   return Scaffold(
-                    body: Center(
-                      child: Text(snapshot.error.toString()),
-                    ),
+                    body: Center(child: Text(snapshot.error.toString())),
                   );
                 }
 
                 //if data is loading
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Scaffold(
-                    body: Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                    body: Center(child: CircularProgressIndicator()),
                   );
                 }
 
@@ -75,10 +71,10 @@ class _SplashScreenState extends State<SplashScreen> {
                 width: screenSize.width * 0.4,
                 child: Image.asset('assets/images/logo.png'),
               ),
-              LoadingAnimationWidget.prograssiveDots(
+              LoadingAnimationWidget.progressiveDots(
                 color: Theme.of(context).colorScheme.onPrimary,
                 size: screenSize.height * 0.12,
-              )
+              ),
             ],
           ),
         ),

@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 
 import 'package:sohna_salon_app/widgets/login/other/login_form.dart';
@@ -26,9 +28,7 @@ class LoginScreen extends StatelessWidget {
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.only(
-                  top: screenSize.height * 0.04,
-                ),
+                margin: EdgeInsets.only(top: screenSize.height * 0.04),
                 width: screenSize.width * 0.4,
                 child: Image.asset('assets/images/logo.png'),
               ),

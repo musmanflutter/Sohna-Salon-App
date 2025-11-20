@@ -9,21 +9,31 @@ import 'firebase_options.dart';
 
 import 'package:sohna_salon_app/screens/splash_screen.dart';
 
-final themeSet = ThemeData().copyWith(
-  colorScheme: ColorScheme.fromSeed(
-    seedColor: const Color.fromARGB(255, 255, 0, 0),
+final themeSet = ThemeData(
+  useMaterial3: false,
+  primaryColor: Color(0xFFc10100),
+  colorScheme: const ColorScheme(
+    brightness: Brightness.light,
+    primary: Color(0xFFc10100),
+    onPrimary: Colors.white,
+    secondary: Color(0xFFc10100),
+    onSecondary: Colors.white,
+    error: Colors.red,
+    onError: Colors.white,
+    background: Colors.white,
+    onBackground: Colors.black,
+    surface: Colors.white,
+    onSurface: Colors.black,
+    primaryContainer: Color(0xFFffe7e0),
+    onPrimaryContainer: Colors.black,
   ),
   textTheme: GoogleFonts.latoTextTheme(),
 );
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations([
-    DeviceOrientation.portraitUp,
-  ]);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseFirestore.instance.settings = const Settings(
     persistenceEnabled: true,
   );

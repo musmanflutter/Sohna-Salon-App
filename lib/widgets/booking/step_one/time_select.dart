@@ -48,20 +48,22 @@ class _TimeSelectState extends State<TimeSelect> {
               margin: EdgeInsets.symmetric(horizontal: screenSize.width * 0.01),
               decoration: BoxDecoration(
                 border: Border.all(
-                    color:
-                        Theme.of(context).colorScheme.primary.withOpacity(0.3)),
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                ),
                 borderRadius: BorderRadius.circular(15),
                 color: _selectedTime != _timeSlots[index]
                     ? Theme.of(context).colorScheme.primaryContainer
                     : Theme.of(context).colorScheme.primary,
               ),
               alignment: Alignment.center,
-              child: Text(_timeSlots[index],
-                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: _selectedTime != _timeSlots[index]
-                            ? Theme.of(context).colorScheme.onPrimaryContainer
-                            : Theme.of(context).colorScheme.onPrimary,
-                      )),
+              child: Text(
+                _timeSlots[index],
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: _selectedTime != _timeSlots[index]
+                      ? Theme.of(context).colorScheme.onPrimaryContainer
+                      : Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
             ),
           );
         },
