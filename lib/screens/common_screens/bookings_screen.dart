@@ -24,6 +24,7 @@ class BookingScreen extends ConsumerStatefulWidget {
 }
 
 class _BookingScreenState extends ConsumerState<BookingScreen> {
+  List<String> _bookedSlots = [];
   final user = FirebaseAuth.instance.currentUser;
   int _currentStep = 0;
   double _totalPrice = 0.0;
@@ -248,9 +249,42 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
     return dealsPrice;
   }
 
-  void selectDate(DateTime date) {
+  void selectDate(DateTime date) async {
     setState(() {
       _selectedDate = date;
+      _selectedTime = '';
+      _bookedSlots = [];
+    });
+
+    final dayStart = DateTime(date.year, date.month, date.day);
+    final dayEnd = dayStart.add(const Duration(days: 1));
+
+    final snap = await FirebaseFirestore.instance
+        .collection('Orders')
+        .where('date', isGreaterThanOrEqualTo: dayStart)
+        .where('date', isLessThan: dayEnd)
+        .get();
+
+    final List<String> slots = [];
+
+    for (var doc in snap.docs) {
+      // IMPORTANT: make sure this matches your stored time format
+      final time = doc['time'] as String;
+      slots.add(time);
+    }
+
+    // Debug logs (just to be sure)
+    // ignore: avoid_print
+    print('selectDate Selected date: $dayStart - $dayEnd');
+    // ignore: avoid_print
+    print('selectDate Found bookings: ${snap.docs.length}');
+    for (var s in slots) {
+      // ignore: avoid_print
+      print('selectDate Booked slot: $s');
+    }
+
+    setState(() {
+      _bookedSlots = slots;
     });
   }
 
@@ -305,7 +339,11 @@ class _BookingScreenState extends ConsumerState<BookingScreen> {
             state: _currentStep > 0 ? StepState.complete : StepState.indexed,
             isActive: _currentStep >= 0,
             title: const Text('Date & Time'),
-            content: StepOne(selectDate: selectDate, selectTime: selectTime),
+            content: StepOne(
+              selectDate: selectDate,
+              selectTime: selectTime,
+              bookedSlots: _bookedSlots,
+            ),
           ),
           Step(
             state: _currentStep > 1 ? StepState.complete : StepState.indexed,

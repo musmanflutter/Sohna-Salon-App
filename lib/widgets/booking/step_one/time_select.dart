@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TimeSelect extends StatefulWidget {
-  const TimeSelect({super.key, required this.timeSelected});
   final Function(String) timeSelected;
+  final List<String> bookedSlots;
+
+  const TimeSelect({
+    super.key,
+    required this.timeSelected,
+    required this.bookedSlots,
+  });
 
   @override
   State<TimeSelect> createState() => _TimeSelectState();
@@ -36,32 +42,42 @@ class _TimeSelectState extends State<TimeSelect> {
         scrollDirection: Axis.horizontal,
         itemCount: _timeSlots.length,
         itemBuilder: (context, index) {
+          bool isBooked = widget.bookedSlots.contains(_timeSlots[index]);
+
           return GestureDetector(
-            onTap: () {
-              setState(() {
-                _selectedTime = _timeSlots[index];
-              });
-              widget.timeSelected(_selectedTime);
-            },
+            onTap: isBooked
+                ? null
+                : () {
+                    setState(() {
+                      _selectedTime = _timeSlots[index];
+                    });
+                    widget.timeSelected(_selectedTime);
+                  },
             child: Container(
               width: screenSize.width * 0.25,
               margin: EdgeInsets.symmetric(horizontal: screenSize.width * 0.01),
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.3),
+                  color: isBooked
+                      ? Colors.grey
+                      : Theme.of(context).colorScheme.primary.withOpacity(0.3),
                 ),
                 borderRadius: BorderRadius.circular(15),
-                color: _selectedTime != _timeSlots[index]
-                    ? Theme.of(context).colorScheme.primaryContainer
-                    : Theme.of(context).colorScheme.primary,
+                color: isBooked
+                    ? Colors.grey.shade300
+                    : (_selectedTime == _timeSlots[index]
+                          ? Theme.of(context).colorScheme.primary
+                          : Theme.of(context).colorScheme.primaryContainer),
               ),
               alignment: Alignment.center,
               child: Text(
                 _timeSlots[index],
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                  color: _selectedTime != _timeSlots[index]
-                      ? Theme.of(context).colorScheme.onPrimaryContainer
-                      : Theme.of(context).colorScheme.onPrimary,
+                  color: isBooked
+                      ? Colors.grey
+                      : (_selectedTime == _timeSlots[index]
+                            ? Theme.of(context).colorScheme.onPrimary
+                            : Theme.of(context).colorScheme.onPrimaryContainer),
                 ),
               ),
             ),
